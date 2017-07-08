@@ -25,13 +25,6 @@ RUN             curl https://keybase.io/justcontainers/key.asc | gpg --import &&
 		gunzip -c /tmp/s6-overlay-$ARCH.tar.gz | tar -xf - -C / && \
 		chmod +x /usr/local/bin/confd
 
-#		tar xzf /tmp/s6-overlay-$ARCH.tar.gz -C / --exclude="./bin" --exclude="./sbin" && \
-#		tar xzf /tmp/s6-overlay-$ARCH.tar.gz -C /usr ./bin ./sbin
-
-
-#RUN		echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-# 		apk add --update libressl@testing && \
-#RUN 		apk add --update dnsmasq jq curl && \
 RUN		apk del curl gnupg && \
 		rm -rf /tmp/* && \
 		rm -rf /var/cache/apk/*
