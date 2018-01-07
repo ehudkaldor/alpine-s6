@@ -14,11 +14,12 @@ ENV					S6_VERSION 1.21.2.2
 ENV					CONFD_VERSION 0.14.0
 ENV					ARCH armhf
 
-RUN					apk add --update gnupg curl
+RUN					echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+						apk add --update gnupg curl
 
 ADD					https://github.com/just-containers/s6-overlay/releases/download/v$S6_VERSION/s6-overlay-$ARCH.tar.gz /tmp/
 ADD					https://github.com/just-containers/s6-overlay/releases/download/v$S6_VERSION/s6-overlay-$ARCH.tar.gz.sig /tmp/
-ADD					https://github.com/kelseyhightower/confd/releases/download/v$CONFD_VERSION/confd-$CONFD_VERSION-linux-amd64 /usr/local/bin/confd
+ADD					https://github.com/kelseyhightower/confd/releases/download/v$CONFD_VERSION/confd-$CONFD_VERSION-linux-$ARCH /usr/local/bin/confd
 
 RUN					curl https://keybase.io/justcontainers/key.asc | gpg --import && \
 						gpg --verify /tmp/s6-overlay-$ARCH.tar.gz.sig /tmp/s6-overlay-$ARCH.tar.gz && \
