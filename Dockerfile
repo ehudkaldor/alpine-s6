@@ -18,9 +18,11 @@ RUN					echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repos
 
 ADD					https://github.com/just-containers/s6-overlay/releases/download/v$S6_VERSION/s6-overlay-$ARCH.tar.gz /tmp/
 ADD					https://github.com/just-containers/s6-overlay/releases/download/v$S6_VERSION/s6-overlay-$ARCH.tar.gz.sig /tmp/
+ADD         https://github.com/just-containers/socklog-overlay/releases/download/v2.2.0-0/socklog-overlay-$ARCH.tar.gz /tmp/
 
 RUN					curl https://keybase.io/justcontainers/key.asc | gpg --import && \
 						gpg --verify /tmp/s6-overlay-$ARCH.tar.gz.sig /tmp/s6-overlay-$ARCH.tar.gz && \
+						gunzip -c /tmp/socklog-overlay-amd64.tar.gz | tar -xf - -C / && \
 						gunzip -c /tmp/s6-overlay-$ARCH.tar.gz | tar -xf - -C /
 
 RUN					apk del curl gnupg && \
