@@ -15,7 +15,9 @@ ENV					SOCKLOG_VERSION 3.1.0-2
 ENV					ARCH amd64
 
 RUN					echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-						apk add --update gnupg curl confd
+						apk update && \
+						apk upgrade && \
+						apk add gnupg curl confd
 
 ADD					https://github.com/just-containers/s6-overlay/releases/download/v$S6_VERSION/s6-overlay-$ARCH.tar.gz /tmp/
 ADD					https://github.com/just-containers/s6-overlay/releases/download/v$S6_VERSION/s6-overlay-$ARCH.tar.gz.sig /tmp/
