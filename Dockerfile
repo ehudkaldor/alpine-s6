@@ -12,7 +12,7 @@ MAINTAINER	Ehud Kaldor <ehud@unfairfunction.org>
 ENV					S6_LOGGING 1
 ENV					S6_VERSION 1.22.1.0
 ENV					SOCKLOG_VERSION 3.1.0-2
-ENV					ARCH amd64
+ENV					ARCH armhf
 
 RUN					echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
   					apk update && \
