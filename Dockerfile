@@ -6,7 +6,7 @@
 #
 ################################################
 
-FROM				alpine:latest
+FROM				alpine:3.11
 MAINTAINER	Ehud Kaldor <ehud@unfairfunction.org>
 
 ENV					S6_LOGGING 1
