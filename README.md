@@ -3,8 +3,9 @@
 This is a base docker image, using Alpine Linux as base, with S6-overlay as process manager and conf.d for configuration management.
 
 Current versions:
-Alpine Linux: 3.7 with edge repository
-S6-overlay: 1.22.2.2
+Alpine Linux: 3.11
+S6-overlay: 1.22.1.0
+Socklog-overlay: 3.1.0-2
 
 confd is installed from repository.
 
