@@ -10,7 +10,7 @@ FROM				alpine:3.11
 MAINTAINER	Ehud Kaldor <ehud@unfairfunction.org>
 
 ENV					S6_LOGGING 1
-ENV					S6_VERSION 1.22.1.0
+ENV					S6_VERSION 2.0.0.1
 ENV					SOCKLOG_VERSION 3.1.0-2
 ENV					ARCH amd64
 
